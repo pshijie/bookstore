@@ -1,0 +1,98 @@
+@charset "utf-8";
+/* CSS Document */
+#navi
+	{
+	width: auto;height:250px;
+	}
+
+#content
+	{
+	width:85%;
+    height:auto;
+	top:200px;position: fixed;bottom: 0; 
+		
+	}
+.container{  
+        width:1200px;  
+        height: 600px;
+        margin:20px auto;  
+        overflow: hidden;  
+        position: relative; 
+    }  
+    .container .imgcss{  
+        animation:scoll 18s linear 0s infinite;  
+    } 
+    .container .textcss {
+        animation:textScroll 8s linear 0s infinite;  
+    }
+    .container ul {
+        width:4000px;  
+        left:0;  
+        top:0;  
+        position: absolute;  
+    }
+    .container ul:hover {
+        animation-play-state: paused;
+    } 
+    .container ul li{  
+        float:left;  
+    }  
+    @keyframes scoll{  
+        from{  
+            left:0;  
+        }  
+        to{  
+            left:-960px;  
+        }  
+    }   
+    @keyframes textScroll{  
+        from{  
+            left:0;  
+        }  
+        to{  
+            left:-986px;  
+        }  
+    }
+#below{
+	float:right; width:1000px; height:60px;
+	
+}
+
+#right
+{	left: 85%;
+	top:200px;
+	width:30%;
+    height:auto;
+	position: fixed;bottom: 0; 
+}
+#menu { 
+font:18px ; 
+font-family: "宋体";
+text-align: center;
+color: #F5680B;
+font-weight: bold;
+}
+#menu li {
+list-style:none; /* 将默认的列表符号去掉 */
+width:300px;
+height:40px;
+margin:3px;
+float:left;
+}
+
+#login { 
+font:12px ; 
+display:inline;
+font-family: "宋体";
+white-space: nowrap;
+color: #F5680B;
+font-weight: bold;
+text-align: center;
+}
+#login li {
+list-style:none; /* 将默认的列表符号去掉 */
+width:80px;
+height:30px;
+margin:3px;
+float:right;
+}
