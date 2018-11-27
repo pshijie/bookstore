@@ -84,7 +84,7 @@ public class UserServlet extends HttpServlet {
         //销毁session
         hs.invalidate();
         //重定向到登录界面
-        resp.sendRedirect("login.jsp");
+        resp.sendRedirect("homepage/home.html");
     }
 
     //检测是否有该用户并登陆
@@ -94,7 +94,6 @@ public class UserServlet extends HttpServlet {
         String pwd = req.getParameter("pwd");
         //校验
         boolean is_u =us.checkUserLoginService(uid,pwd);
-        boolean is_a = as.adminCheckService(uid,pwd);
         if(is_u==true){
             //获取session对象
             HttpSession hs=req.getSession();
@@ -103,15 +102,7 @@ public class UserServlet extends HttpServlet {
             //重定向,有该用户就登录到用户主页面
             resp.sendRedirect("usermain/main.jsp");
             return;
-        } else if(is_a==true){
-            //获取session对象
-            HttpSession hs=req.getSession();
-            //将用户数据存储到session中
-            hs.setAttribute("uid", uid);
-            //重定向,有该用户就登录到用户主页面
-            resp.sendRedirect("admin_main/main.jsp");
-            return;
-        }else {
+        } else {
             //标识符在应用在login.jsp
             req.setAttribute("flag",0);
             req.getRequestDispatcher("login.jsp").forward(req,resp);
@@ -119,5 +110,4 @@ public class UserServlet extends HttpServlet {
         }
 
     }
-
 }
