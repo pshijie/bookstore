@@ -46,7 +46,7 @@
     </ul>
 
     <div class="user">
-        <span><%=(session.getAttribute("uid"))%></span>
+        <span><%=(session.getAttribute("admid"))%></span>
     </div>
 
 </div>
