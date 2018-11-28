@@ -53,6 +53,7 @@ h2{font-weight:normal;}
 .loginbox2{background:url(../images/logininfo2.png) no-repeat;}
 .loginbox2 ul li{margin-bottom:16px;}
 .loginbox3{background:url(../images/logininfo3.png) no-repeat;}
+.admloginbox3{ background:url(../images/logininfo2.png) no-repeat; }
 .loginbox3 ul li{margin-bottom:16px;}
 .yzm{width:341px; height:46px; background:url(../images/yzmbg.png) no-repeat; padding-bottom:5px;}
 .yzm span{display:block; float:left;width:227px; height:46px;}
