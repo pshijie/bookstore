@@ -19,4 +19,12 @@
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddbookServlet</servlet-name>
+        <servlet-class>servlet.AddbookServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddbookServlet</servlet-name>
+        <url-pattern>/AddbookServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

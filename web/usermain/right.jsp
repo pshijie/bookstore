@@ -10,6 +10,7 @@
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -44,11 +45,32 @@
         <td><%=bk2.getBprice()%></td>
         <td><%=bk3.getBprice()%></td>
     </tr>
-    <tr><td><input type="button" value="查看详情"><input type="button" value="加入购物车"></td>
-        <td><input type="button" value="查看详情"><input type="button" value="加入购物车"></td>
-        <td><input type="button" value="查看详情"><input type="button" value="加入购物车"></td></tr>
+    <tr><td><input type="button"  value="查看详情"><input type="button" class="cart" value="加入购物车" id="<%=bk1.getBid()%>"></td>
+        <td><input type="button" value="查看详情"><input type="button" class="cart" value="加入购物车" id="<%=bk2.getBid()%>"></td>
+        <td><input type="button" value="查看详情"><input type="button" class="cart" value="加入购物车" id="<%=bk3.getBid()%>"></td></tr>
 </table>
 <%}%>
+<script>
+   $(".cart") .click( function () {
+       $.ajax({
+           type: "GET",
+           url: "/AddbookServlet",
+           data: {"Bid":$(this).attr("id")},
+           success: function(data){
+              if(data=="1"){
+                  alert("添加成功");
+              }else {
+                  alert("添加失败");
+              }
+           }
+       });
+   });
+
+
+
+
+
+</script>
 </body>
 
 </html>
