@@ -24,8 +24,7 @@ public class BookServlet extends HttpServlet {
         String ID=request.getParameter("id");
         BookImp bookImp=new BookImp();
         List<book> list=bookImp.queryABook(ID);
-        //标识符在应用在login.jsp
-        request.setAttribute("book",list.get(0));
+        request.setAttribute("book",list.get(0));//根据url传来的idj进入数据库查询书籍
         try {
             request.getRequestDispatcher("books/bookdetail.jsp").forward(request,response);
         } catch (ServletException e) {
