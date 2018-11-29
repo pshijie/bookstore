@@ -14,7 +14,7 @@
 <head>
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="books/book.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 
@@ -48,12 +48,12 @@
     </tr>
     <tr><td>
         <a href="BookServlet?id=<%=bk1.getBid()%>" target="rightFrame"> 查看详情</a>
-            <input type="button" value="加入购物车" onclick="clickme(<%=uid%>,<%=bk1.getBid()%>)">
+        <input type="button" class="cart" value="加入购物车" id="<%=bk1.getBid()%>">
     </td>
         <td> <a href="BookServlet?id=<%=bk2.getBid()%>" target="rightFrame"> 查看详情</a>
-            <input type="button" value="加入购物车" onclick="clickme(<%=uid%>,<%=bk2.getBid()%>)"></td>
+            <input type="button" class="cart" value="加入购物车" id="<%=bk2.getBid()%>"></td>
         <td> <a href="BookServlet?id=<%=bk3.getBid()%>" target="rightFrame"> 查看详情</a>
-            <input type="button" value="加入购物车" onclick="clickme(<%=uid%>,<%=bk3.getBid()%>)"></td></tr>
+            <input type="button" class="cart" value="加入购物车" id="<%=bk3.getBid()%>"></td></tr>
 
 <%}%>
 <script>
