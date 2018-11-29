@@ -73,7 +73,7 @@
         </div>
         <ul class="menuson">
 
-            <li><cite></cite><a href="" target="rightFrame">购物车</a><i></i></li>
+            <li><cite></cite><a href="Cart.jsp" target="rightFrame">购物车</a><i></i></li>
             <li><cite></cite><a href="" target="rightFrame">订单</a><i></i></li>
         </ul>
     </dd>

@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="DAO.BookImp" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.awt.print.Book" %>
 <%@ page import="Model.book" %>
 <%
     String path = request.getContextPath();
@@ -9,10 +10,11 @@
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="books/bookcss.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 
@@ -26,7 +28,8 @@
     { book bk1=blist.get(i++);
         book bk2=blist.get(i++);
         book bk3=blist.get(i++);
-
+        System.out.println(bk1.getBname());
+        System.out.println(bk1.getBpic());
 %>
 <table>
     <td><img src="<%=bk1.getBpic()%>" ></td>
@@ -53,15 +56,27 @@
             <input type="button" value="加入购物车" onclick="clickme(<%=uid%>,<%=bk3.getBid()%>)"></td></tr>
 
 <%}%>
-</table>
-</body>
-<
-<script !src="">
-    function clickme(uid,bid) {
-        var flag=window.confirm("确定加入购物车吗");
-        if(flag){
-            window.top.location.href="UserServlet?uid="+uid+"&amp;bid="+bid;
-        }
-    }
+<script>
+   $(".cart") .click( function () {
+       $.ajax({
+           type: "GET",
+           url: "/AddbookServlet",
+           data: {"Bid":$(this).attr("id")},
+           success: function(data){
+              if(data=="1"){
+                  alert("添加成功");
+              }else {
+                  alert("添加失败");
+              }
+           }
+       });
+   });
+
+
+
+
+
 </script>
+</body>
+
 </html>

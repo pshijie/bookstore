@@ -7,7 +7,10 @@ public class book {
     private int Bstock;//书库存
     private String Bpic;//书图片名称（id.png)
     private String Babstract;//书的描述
+    //无参构造函数
+    public book(){
 
+    };
     public book(String bid, String bname, float bprice, int bstock,  String babstract,String bpic) {
         Bid = bid;
         Bname = bname;

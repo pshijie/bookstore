@@ -6,6 +6,9 @@ public class orders {
     private String Oid;//订单编号
     private String stutas;//订单状态
 
+    public orders(){
+
+    }
     public orders(String uid, String bid, String oid, String stutas) {
         Uid = uid;
         Bid = bid;

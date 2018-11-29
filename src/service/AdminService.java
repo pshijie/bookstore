@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AdminService {
     /**
-     * 获取所有的用户信息wcj
+     * 获取所有的用户信息
      * @return
      */
     List<user> userShowService();
