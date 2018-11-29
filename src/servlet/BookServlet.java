@@ -23,8 +23,8 @@ public class BookServlet extends HttpServlet {
         System.out.println("进入revlet");
         String ID=request.getParameter("id");
         BookImp bookImp=new BookImp();
-        List<book> list=bookImp.queryABook(ID);
-        request.setAttribute("book",list.get(0));//根据url传来的idj进入数据库查询书籍
+        book book=bookImp.queryBookbyid(ID);
+        request.setAttribute("book",book);//根据url传来的idj进入数据库查询书籍
         try {
             request.getRequestDispatcher("books/bookdetail.jsp").forward(request,response);
         } catch (ServletException e) {
