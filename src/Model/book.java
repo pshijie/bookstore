@@ -65,4 +65,15 @@ public class book {
     public void setBabstract(String babstract) {
         Babstract = babstract;
     }
+
+    @Override
+    public String toString() {
+        return "book{" +
+                "Bid='" + Bid + '\'' +
+                ", Bname='" + Bname + '\'' +
+                ", Bprice=" + Bprice +
+                ", Bstock=" + Bstock +
+                ", Bpic='" + Bpic + '\'' +
+                '}';
+    }
 }

@@ -2,7 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="DAO.BookImp" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.awt.print.Book" %>
 <%@ page import="Model.book" %>
 <%
     String path = request.getContextPath();
@@ -13,12 +12,13 @@
 <head>
     <base href="<%=basePath%>">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="books/bookcss.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/jquery.js"></script>
 </head>
 
 <body>
 <%
+    String uid=(String) request.getAttribute("uid");
     BookImp bookImp=new BookImp();
     List<book> blist=bookImp.queryAllBooks();
     int i=0;
@@ -26,8 +26,7 @@
     { book bk1=blist.get(i++);
         book bk2=blist.get(i++);
         book bk3=blist.get(i++);
-        System.out.println(bk1.getBname());
-        System.out.println(bk1.getBpic());
+
 %>
 <table>
     <td><img src="<%=bk1.getBpic()%>" ></td>
@@ -44,11 +43,25 @@
         <td><%=bk2.getBprice()%></td>
         <td><%=bk3.getBprice()%></td>
     </tr>
-    <tr><td><input type="button" value="查看详情"><input type="button" value="加入购物车"></td>
-        <td><input type="button" value="查看详情"><input type="button" value="加入购物车"></td>
-        <td><input type="button" value="查看详情"><input type="button" value="加入购物车"></td></tr>
-</table>
-<%}%>
-</body>
+    <tr><td>
+        <a href="BookServlet?id=<%=bk1.getBid()%>" target="rightFrame"> 查看详情</a>
+            <input type="button" value="加入购物车" onclick="clickme(<%=uid%>,<%=bk1.getBid()%>)">
+    </td>
+        <td> <a href="BookServlet?id=<%=bk2.getBid()%>" target="rightFrame"> 查看详情</a>
+            <input type="button" value="加入购物车" onclick="clickme(<%=uid%>,<%=bk2.getBid()%>)"></td>
+        <td> <a href="BookServlet?id=<%=bk3.getBid()%>" target="rightFrame"> 查看详情</a>
+            <input type="button" value="加入购物车" onclick="clickme(<%=uid%>,<%=bk3.getBid()%>)"></td></tr>
 
+<%}%>
+</table>
+</body>
+<
+<script !src="">
+    function clickme(uid,bid) {
+        var flag=window.confirm("确定加入购物车吗");
+        if(flag){
+            window.top.location.href="UserServlet?uid="+uid+"&amp;bid="+bid;
+        }
+    }
+</script>
 </html>
