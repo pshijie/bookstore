@@ -24,19 +24,16 @@ public class AddbookServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             request.setCharacterEncoding("utf-8");
-            //前提修改购物车中那一类物品的数量
             HttpSession session=request.getSession();
             //List<book> books=(List<book>)session.getAttribute("books");
             //List<orders> orders=(List<Model.orders>)session.getAttribute("orders");
-
-            //获得提交的内容
+            //获得提交的内容Bid
             String Bid=request.getParameter("Bid");
             //String Uid=request.getParameter("Uid");
             List<book> blist=(List<book>)session.getAttribute("blist");
             if(blist==null){
                 blist=new ArrayList<book>() ;
             }
-
             String isadd="1";
             try {
                     BookImp bookImp = new BookImp();
@@ -46,29 +43,12 @@ public class AddbookServlet extends HttpServlet {
                     }else{
                         blist.add(b);
                     }
-
             }catch (Exception e){
               isadd="0";
           }
-            session.setAttribute("blist",blist);
-            //存入购物车
-        PrintWriter out=response.getWriter();
-              out.print(isadd);
-//            Book.setBid(Bid); OrderImp orderImp=new OrderImp();
-//        List <orders> order =orderImp.queryMyOders(Uid);
-//        while(order!=null){
-//            if(order.getBid()==Bid)
-//            {
-//
-//            }
-//            order=order.next();
-//
-//        }
-//        book Book=new book();
-//            orders Order=new orders();
-//
-//
-
-
+        //存入购物车
+          session.setAttribute("blist",blist);
+          PrintWriter out=response.getWriter();
+          out.print(isadd);
     }
 }

@@ -60,7 +60,7 @@ public class BookImp extends DBHandler {
         }
         return books;
     }
-    public book  queryBookbyid(String bid){
+    public book queryBookbyid(String bid){
         book b=null;
         Connection conn=getConnection();
         List<book> books=new ArrayList<book>();
@@ -79,8 +79,7 @@ public class BookImp extends DBHandler {
                 int Bstock=rs.getInt(4);
                 String Bpic= rs.getString(6);
                 String Babstract= rs.getString(5);
-               b=new book(bid,Bname,Bprice,Bstock,Babstract,Bpic);
-
+                b=new book(bid,Bname,Bprice,Bstock,Babstract,Bpic);
             }
         }
         catch (SQLException e){
@@ -89,11 +88,6 @@ public class BookImp extends DBHandler {
             closeConnection(conn);
         }
         return b;
-
-
-
-
-
     }
 
 

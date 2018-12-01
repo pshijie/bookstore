@@ -56,8 +56,9 @@ public class OrderImp extends DBHandler {
         }
         return orders;
     }
-    public void addOrder(String Uid,String Bid)//提交购物车时加入订单
+    public orders addOrder(String Uid,String Bid)//提交购物车时加入订单
     {
+        orders Order=null;
         String sql="insert into orders(Uid,Bid,stutas)" +
                 " values(?,?,?)";
         String sql2="update book set Bstock=Bstock-1 where Bid=(?)";
@@ -72,10 +73,12 @@ public class OrderImp extends DBHandler {
             pstmt=conn.prepareStatement(sql2);
             pstmt.setString(1,Bid);
             pstmt.execute();
+            Order=new orders(Uid,Bid,"已修改","1");
         }catch(SQLException e){
             e.printStackTrace();
         }finally {
             closeConnection(conn);
         }
+        return Order;
     }
 }

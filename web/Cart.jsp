@@ -9,7 +9,6 @@
 <html>
 <head>
     <title>Title</title>
-
 </head>
 <body>
 <%
@@ -21,8 +20,6 @@
         out.print("<br>");
 
     }
-
-
 %>
 </body>
 </html>
