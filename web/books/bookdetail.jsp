@@ -40,9 +40,9 @@
         </td></tr>
     <tr id="mytr">
         <td style="text-align: center"><p id="price" >¥<%=book.getBprice()%> </p>
-        <input class="min" name="" type="button" value="-" />
-        <input class="text_box" name="" type="number" value="" placeholder="0"/>
-        <input class="add" name="" type="button" value="+" />
+       <button id="jian" onclick="jian()">-</button>
+        <input id="text_box" name="" type="number" value="" placeholder="0"/>
+            <button id="add" onclick="add()">+</button>
         <input type="button" class="cart" value="加入购物车" id="<%=book.getBid()%>">
     </td></tr></table>
 <script>
@@ -61,43 +61,28 @@
         });
     });
 
-    $(function() {
-        $(".add").click(function() {
-            var t = $(this).parent().find('input[class*=text_box]');
-            if(t.val()==""||undefined||null){
-                t.val(0);
-            }
-            t.val(parseInt(t.val()) + 1)
-            setTotal();
-        })
-        $(".min").click(function() {
-            var t = $(this).parent().find('input[class*=text_box]');
-            if(t.val()==""||undefined||null){
-                t.val(0);
-            }
-            t.val(parseInt(t.val()) - 1)
-            if(0 > parseInt(t.val())) {
-                t.val(0);
-            }
-            setTotal();
-        })
-        $(".text_box").keyup(function(){
-            var t = $(this).parent().find('input[class*=text_box]');
-            if(parseInt(t.val())==""||undefined||null || isNaN(t.val())) {
-                t.val(0);
-            }
-            setTotal();
-        })
-        function setTotal() {
-            $("#mytr").each(function() {
-                var t = $(this).children('td').find('input[class*=text_box]').val();
-                if(parseInt(t)==""||undefined||null || isNaN(t) || isNaN(parseInt(t))){
-                    t=0;
-                }
-            });
+    function add()
+    {
+        var num=document.getElementById('text_box');
+        var a=num.value;
+        a++;
+        num.value=a;
+
+    }
+    function jian()
+    {
+        var num=document.getElementById('text_box');
+        var b=num.value;
+        if(1 >= b)
+        {
+            alert('对不起，库存件数不能为0');
         }
-        setTotal();
-    })
+        else
+        {
+            b--;
+            num.value=b;
+        }
+    }
 
 </script>
 
