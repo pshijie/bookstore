@@ -125,10 +125,6 @@
             }
             setTotal();
         })
-
     </script>
-
-
 </body>
-
 </html>

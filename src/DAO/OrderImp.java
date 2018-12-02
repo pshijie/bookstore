@@ -42,10 +42,10 @@ public class OrderImp extends DBHandler {
                 rs=pstmt.getResultSet();
                 while (rs.next())
                 {
-                    String Oid=rs.getString(1);
-                    String Bid=rs.getString(2);
-                    String status=rs.getString(4);
-                    orders o=new orders(Oid,Bid,Uid,status);
+                    String Oid=rs.getString("Oid");
+                    String Bid=rs.getString("Bid");
+                    String status=rs.getString("stutas");
+                    orders o=new orders(Uid,Bid,Oid,status);
                     orders.add(o);
                 }
             }
