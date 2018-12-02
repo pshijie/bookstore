@@ -28,11 +28,12 @@
         <url-pattern>/AddbookServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>AddOrderServlet</servlet-name>
-        <servlet-class>servlet.AddOrderServlet</servlet-class>
+        <servlet-name>BookServlet</servlet-name>
+        <servlet-class>servlet.BookServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AddOrderServlet</servlet-name>
-        <url-pattern>/AddOrderServlet</url-pattern>
+        <servlet-name>BookServlet</servlet-name>
+        <url-pattern>/BookServlet</url-pattern>
     </servlet-mapping>
+
 </web-app>

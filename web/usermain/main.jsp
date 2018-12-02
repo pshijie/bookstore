@@ -14,7 +14,6 @@
     </frameset>
     <frame src="footer.jsp" name="bottomFrame" scrolling="No" noresize="noresize" id="bottomFrame" title="bottomFrame" />
 </frameset>
-</frameset>
 <noframes><body>
 </body></noframes>
 </html>
