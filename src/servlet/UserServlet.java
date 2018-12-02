@@ -47,6 +47,16 @@ public class UserServlet extends HttpServlet {
     private void userReg(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String uid = req.getParameter("uid");
         String pwd = req.getParameter("pwd");
+//
+////        在session里面注册用户名和密码
+//        HttpSession session = req.getSession();
+//        session.setAttribute("uid", uid);
+//        session.setAttribute("pwd", pwd);
+//        System.out.println("---------------------------------------------");
+//        System.out.println("uid"+uid);
+//        System.out.println("pwd"+pwd);
+//        System.out.println("---------------------------------------------");
+
         String address = req.getParameter("address");
         String phone = req.getParameter("phone");
         user u = new user(uid,pwd,address,phone);
