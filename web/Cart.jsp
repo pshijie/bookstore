@@ -18,7 +18,6 @@
     for (book b:bookList) {
         %>
 <div class="row">
-
     <div class="col-xs-3">
         <img src="<%= b.getBpic()%>">
     </div>
